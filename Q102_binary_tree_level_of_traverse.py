@@ -11,10 +11,11 @@ class Solution:
             # not root
             if not root:
                 return
-            # length of list should be less than level+1
+            # first entry for that level, just before add an empty list
             if len(res) < level+1:
                 res.append([])
             res[level].append(root.val)
+
             # divide and conquer
             dfs(root.left, level+1, res)
             dfs(root.right, level+1, res)
