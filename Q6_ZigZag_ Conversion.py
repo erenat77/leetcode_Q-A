@@ -5,21 +5,20 @@
 
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
-        if numRows == 1 or numRows >= len(s):
+        if numRows==1 or numRows==len(s):
             return s
-        
-        row, step = 0, 0
-        res = [''] * len(s)
-        
-        for c in s:
-            print(res,row)
-            res[row] += c
-            
-            if row == 0:
-                step = 1
-            elif row == numRows - 1:
-                step = -1
-                
-            row += step
-        
-        return "".join(res)
+        row, step = 0,0
+        lst=['']*len(s)
+        for i in s:
+            lst[row]+=i
+            if row==0:
+                step=1
+            elif row==numRows:
+                step=-1
+            row+=step
+        return "".join(lst)
+
+if __name__ == '__main__':
+    result = Solution()
+    print(result.convert('Paypal',4))
+    print(result.convert('Hello',2))
